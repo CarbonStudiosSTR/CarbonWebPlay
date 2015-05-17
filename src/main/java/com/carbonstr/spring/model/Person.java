@@ -1,4 +1,4 @@
-package com.journaldev.spring.model;
+package com.carbonstr.spring.model;
 
 import javax.persistence.*;
 
