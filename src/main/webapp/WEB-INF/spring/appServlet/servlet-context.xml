@@ -39,6 +39,7 @@
 		<beans:property name="annotatedClasses">
 			<beans:list>
 				<beans:value>com.carbonstr.spring.model.Person</beans:value>
+                <beans:value>com.carbonstr.spring.model.Account</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">
@@ -49,6 +50,13 @@
 			</beans:props>
 		</beans:property>
 	</beans:bean>
+
+    <beans:bean id="accountDAO" class="com.carbonstr.spring.dao.AccountDAOImpl">
+        <beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
+    </beans:bean>
+    <beans:bean id="registerService" class="com.carbonstr.spring.service.RegisterServiceImpl">
+        <beans:property name="accountDAO" ref="accountDAO"></beans:property>
+    </beans:bean>
 	
 	<beans:bean id="personDAO" class="com.carbonstr.spring.dao.PersonDAOImpl">
 		<beans:property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
