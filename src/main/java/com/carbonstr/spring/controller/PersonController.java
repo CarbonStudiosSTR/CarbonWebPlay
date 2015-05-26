@@ -1,4 +1,4 @@
-package com.carbonstr.spring;
+package com.carbonstr.spring.controller;
 
 import com.carbonstr.spring.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -50,6 +50,14 @@ public class PersonController {
     public String removePerson(@PathVariable("id") int id){
 		
         this.personService.removePerson(id);
+        return "redirect:/persons";
+    }
+
+
+    @RequestMapping("/right/{id}")
+    public String moveRight(@PathVariable("id") int id){
+
+        this.personService.moveRight(id);
         return "redirect:/persons";
     }
  

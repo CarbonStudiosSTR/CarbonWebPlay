@@ -1,8 +1,8 @@
 package com.carbonstr.spring.dao;
 
-import java.util.List;
-
 import com.carbonstr.spring.model.Person;
+
+import java.util.List;
 
 public interface PersonDAO {
 
@@ -11,4 +11,5 @@ public interface PersonDAO {
 	public List<Person> listPersons();
 	public Person getPersonById(int id);
 	public void removePerson(int id);
+
 }

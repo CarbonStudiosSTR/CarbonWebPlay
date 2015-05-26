@@ -1,12 +1,11 @@
 package com.carbonstr.spring.service;
 
-import java.util.List;
-
+import com.carbonstr.spring.dao.PersonDAO;
+import com.carbonstr.spring.model.Person;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.carbonstr.spring.dao.PersonDAO;
-import com.carbonstr.spring.model.Person;
+import java.util.List;
 
 @Service
 public class PersonServiceImpl implements PersonService {
@@ -46,5 +45,13 @@ public class PersonServiceImpl implements PersonService {
 	public void removePerson(int id) {
 		this.personDAO.removePerson(id);
 	}
+
+    @Override
+    @Transactional
+    public void moveRight(int id) {
+        Person p = this.personDAO.getPersonById(id);
+        p.setPosX(p.getPosX()+1);
+        this.personDAO.updatePerson(p);
+    }
 
 }

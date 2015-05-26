@@ -13,15 +13,35 @@ import javax.persistence.*;
 public class Person {
 
 	@Id
-    @SequenceGenerator(name="student_seq", sequenceName="student_id_seq")
-    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="student_seq")
+    @SequenceGenerator(name="person_seq", sequenceName="person_id_seq")
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="person_seq")
 	private int id;
 	
 	private String name;
 	
 	private String country;
 
-	public int getId() {
+    private int posX;
+
+    private int posY;
+
+    public int getPosX() {
+        return posX;
+    }
+
+    public void setPosX(int posX) {
+        this.posX = posX;
+    }
+
+    public int getPosY() {
+        return posY;
+    }
+
+    public void setPosY(int posY) {
+        this.posY = posY;
+    }
+
+    public int getId() {
 		return id;
 	}
 

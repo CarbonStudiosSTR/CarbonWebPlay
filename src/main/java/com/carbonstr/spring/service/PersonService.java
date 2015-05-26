@@ -1,8 +1,8 @@
 package com.carbonstr.spring.service;
 
-import java.util.List;
-
 import com.carbonstr.spring.model.Person;
+
+import java.util.List;
 
 public interface PersonService {
 
@@ -11,5 +11,7 @@ public interface PersonService {
 	public List<Person> listPersons();
 	public Person getPersonById(int id);
 	public void removePerson(int id);
+
+    public void moveRight(int id);
 	
 }

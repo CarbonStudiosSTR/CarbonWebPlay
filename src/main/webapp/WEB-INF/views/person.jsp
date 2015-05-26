@@ -76,19 +76,26 @@
 		<th width="80">Person ID</th>
 		<th width="120">Person Name</th>
 		<th width="120">Person Country</th>
+		<th width="80">posX</th>
 		<th width="60">Edit</th>
 		<th width="60">Delete</th>
+		<th width="60">Move</th>
+
 	</tr>
 	<c:forEach items="${listPersons}" var="person">
 		<tr>
 			<td>${person.id}</td>
 			<td>${person.name}</td>
 			<td>${person.country}</td>
+			<td>${person.posX}</td>
 			<td><a href="<c:url value='/edit/${person.id}' />" >Edit</a></td>
 			<td><a href="<c:url value='/remove/${person.id}' />" >Delete</a></td>
+			<td><a href="<c:url value='/right/${person.id}' />" >move</a></td>
 		</tr>
 	</c:forEach>
 	</table>
-</c:if>
+</c:if><div>
+</div>
+<img src="<c:url value="/resources/t1.png" />"></img>
 </body>
 </html>
