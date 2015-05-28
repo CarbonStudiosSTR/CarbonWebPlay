@@ -15,10 +15,11 @@ public class Account {
     private String name;
     private String email;
     private String password;
+    @Column(name = "create_date")
     private Date creationDate;
-    @Column(name = "sequirity_question")
+    @Column(name = "security_question")
     private String securityQuestion;
-    @Column(name = "sequirity_answer")
+    @Column(name = "security_answer")
     private String securityAnswer;
     private boolean frozen;
     private boolean premium;

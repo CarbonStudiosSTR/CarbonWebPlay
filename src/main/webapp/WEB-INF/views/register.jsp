@@ -15,5 +15,62 @@
 <body>
 <h1>
 	Add a Person
+	<td><a href="<c:url value='/goToPerson' />" >Edit</a></td>
 </h1>
+
+<c:url var="addAction" value="/register/create" ></c:url>
+
+<form:form action="${addAction}" commandName="account">
+<table>
+	<tr>
+		<td>
+			<form:label path="name">
+				<spring:message text="Name"/>
+			</form:label>
+		</td>
+		<td>
+			<form:input path="name" />
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<form:label path="email">
+				<spring:message text="email"/>
+			</form:label>
+		</td>
+		<td>
+			<form:input path="email" />
+		</td>
+	</tr>
+		<tr>
+    		<td>
+    			<form:label path="password">
+    				<spring:message text="password"/>
+    			</form:label>
+    		</td>
+    		<td>
+    			<form:input path="password" />
+    		</td>
+    	</tr>
+    		<tr>
+        		<td>
+        			<form:label path="creationDate">
+        				<spring:message text="creationDate"/>
+        			</form:label>
+        		</td>
+        		<td>
+        			<form:input path="creationDate" />
+        		</td>
+        	</tr>
+	<tr>
+		<td colspan="2">
+				<input type="submit"
+					value="<spring:message text="Edit Person"/>" />
+		</td>
+	</tr>
+</table>
+</form:form>
+
+
+
 </body>
