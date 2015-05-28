@@ -5,7 +5,12 @@
 	<groupId>com.carbonstudiosSTR</groupId>
 	<artifactId>CarbonWebPlay</artifactId>
 	<name>CarbonWebPlay</name>
-	<packaging>war</packaging>
+    <modules>
+        <module>WebApp</module>
+        <module>Server</module>
+        <module>client</module>
+    </modules>
+    <packaging>pom</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 	<properties>
 		<java-version>1.7</java-version>
