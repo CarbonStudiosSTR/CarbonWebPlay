@@ -25,7 +25,7 @@ public class Account {
     private boolean frozen;
     private boolean premium;
 
-    @OneToMany(mappedBy = "character")
+    @OneToMany(mappedBy = "id")
     private Set<Character> characters;
 
     public Set<Character> getCharacters() {
