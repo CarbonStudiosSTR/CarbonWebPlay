@@ -6,9 +6,7 @@
 	<artifactId>CarbonWebPlay</artifactId>
 	<name>CarbonWebPlay</name>
     <modules>
-        <module>WebApp</module>
-        <module>Server</module>
-        <module>client</module>
+        <module>carbonWebApp</module>
     </modules>
     <packaging>pom</packaging>
 	<version>1.0.0-BUILD-SNAPSHOT</version>
