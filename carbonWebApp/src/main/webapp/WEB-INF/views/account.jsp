@@ -16,8 +16,41 @@
 
 blablabla  m83g
 
+<c:url var="loginAction" value="/login" ></c:url>
 
-      <a href="<c:url value='/login_page' />" >Register</a>
+<form:form action="${loginAction}" method="POST" modelAttribute="account">
+<table>
+	<tr>
+		<td>
+			<form:label path="name">
+				<spring:message text="name"/>
+			</form:label>
+		</td>
+		<td>
+			<form:input path="name" />
+		</td>
+	</tr>
+		<tr>
+    		<td>
+    			<form:label path="password">
+    				<spring:message text="password"/>
+    			</form:label>
+    		</td>
+    		<td>
+    			<form:input path="password" />
+    		</td>
+    	</tr>
+	<tr>
+		<td colspan="2">
+				<input type="submit"
+					value="<spring:message text="Login"/>" />
+		</td>
+	</tr>
+</table>
+</form:form>
+
+
+
 
 
 </body>
