@@ -31,9 +31,9 @@
         <authentication-provider>
             <jdbc-user-service data-source-ref="dataSource"
                                users-by-username-query=
-                                       "select username,password, enabled from users where username=?"
+                                       "select name,password, active from account where name=?"
                                authorities-by-username-query=
-                                       "select username, role from user_roles where username =?  " />
+                                       "select a.name, ar.role from account a join account_roles ar on (a.id = ar.id_account) where a.name =?  "/>
         </authentication-provider>
     </authentication-manager>
 
