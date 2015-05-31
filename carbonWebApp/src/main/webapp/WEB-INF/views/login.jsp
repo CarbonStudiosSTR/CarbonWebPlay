@@ -73,6 +73,7 @@
  
 		</form>
 	</div>
+	<a href="<c:url value='/register' />" >Register</a>
  
 </body>
 </html>

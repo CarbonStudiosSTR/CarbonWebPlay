@@ -14,8 +14,7 @@
 </head>
 <body>
 <h1>
-	Add a Person
-	<td><a href="<c:url value='/goToPerson' />" >Edit</a></td>
+	Create account
 </h1>
 
 <c:url var="addAction" value="/register/create" ></c:url>

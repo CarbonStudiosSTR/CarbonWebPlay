@@ -14,10 +14,8 @@
 </head>
 <body>
 
-blablabla  m83g
-
-
-      <a href="<c:url value='/login_page' />" >Register</a>
+<a href="<c:url value='/login' />" >Login</a></br>
+<a href="<c:url value='/register' />" >Register</a>
 
 
 </body>

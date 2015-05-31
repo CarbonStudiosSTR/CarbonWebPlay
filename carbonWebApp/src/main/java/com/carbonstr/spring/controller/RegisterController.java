@@ -30,17 +30,7 @@ public class RegisterController {
     @RequestMapping(value = "/register/create", method = RequestMethod.POST)
     public String createAccount(@ModelAttribute("account") Account a) {
         this.registerService.registerAccount(a);
-        return "redirect:/success";
-    }
-
-    @RequestMapping(value = "/success", method = RequestMethod.GET)
-    public String success(Model model) {
-        return "success";
-    }
-
-    @RequestMapping(value = "/goToPerson", method = RequestMethod.GET)
-    public String goToPerson(Model model) {
-        return "redirect:/persons";
+        return "redirect:/login";
     }
 
 }

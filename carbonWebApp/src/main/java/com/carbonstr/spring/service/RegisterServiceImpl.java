@@ -16,6 +16,8 @@ public class RegisterServiceImpl implements RegisterService {
     @Override
     @Transactional
     public void registerAccount(Account a) {
+        a.setActive(true);
+        a.setPremium(false);
         accountDAO.addAccount(a);
     }
 

@@ -22,7 +22,7 @@ public class Account {
     private String securityQuestion;
     @Column(name = "security_answer")
     private String securityAnswer;
-    private boolean frozen;
+    private boolean active;
     private boolean premium;
 
     @OneToMany(mappedBy = "id")
@@ -92,12 +92,12 @@ public class Account {
         this.securityAnswer = securityAnswer;
     }
 
-    public boolean isFrozen() {
-        return frozen;
+    public boolean isActive() {
+        return active;
     }
 
-    public void setFrozen(boolean frozen) {
-        this.frozen = frozen;
+    public void setActive(boolean active) {
+        this.active = active;
     }
 
     public boolean isPremium() {
