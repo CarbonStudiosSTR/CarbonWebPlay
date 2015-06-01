@@ -11,8 +11,12 @@
 		.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;}
 		.tg .tg-4eph{background-color:#f9f9f9}
 	</style>
+	    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
+<jsp:include page="navbar.jsp" />
+
 <h1>
 	Create account
 </h1>

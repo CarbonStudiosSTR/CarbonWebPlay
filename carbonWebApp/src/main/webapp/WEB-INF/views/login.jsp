@@ -34,9 +34,12 @@
 	border: 1px solid #000;
 }
 </style>
+    <link href="resources/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body onload='document.loginForm.username.focus();'>
- 
+
+<jsp:include page="navbar.jsp" />
 	<h1>Spring Security Login Form (Database Authentication)</h1>
  
 	<div id="login-box">
