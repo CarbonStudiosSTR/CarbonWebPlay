@@ -40,6 +40,7 @@
 			<beans:list>
 				<beans:value>com.carbonstr.spring.model.Character</beans:value>
                 <beans:value>com.carbonstr.spring.model.Account</beans:value>
+                <beans:value>com.carbonstr.spring.model.Account.AccountRole</beans:value>
 			</beans:list>
 		</beans:property>
 		<beans:property name="hibernateProperties">

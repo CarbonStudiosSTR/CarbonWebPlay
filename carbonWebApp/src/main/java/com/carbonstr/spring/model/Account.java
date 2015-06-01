@@ -10,8 +10,7 @@ import java.util.Set;
 public class Account {
 
     @Id
-    @SequenceGenerator(name = "account_seq", sequenceName = "account_id_seq")
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "account_seq")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String email;
@@ -27,6 +26,56 @@ public class Account {
 
     @OneToMany(mappedBy = "id")
     private Set<Character> characters;
+    @OneToMany(mappedBy = "id")
+    private Set<AccountRole> accountRoles;
+
+    @Entity
+    @Table(name = "account_role")
+    public class AccountRole{
+        public AccountRole(String role) {
+            this.role = role;
+        }
+
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private int id;
+        private String role;
+        @ManyToOne
+        @JoinColumn(name="account")
+        private Account account;
+
+        public int getId() {
+            return id;
+        }
+
+        public void setId(int id) {
+            this.id = id;
+        }
+
+        public String getRole() {
+            return role;
+        }
+
+        public void setRole(String role) {
+            this.role = role;
+        }
+
+        public Account getAccount() {
+            return account;
+        }
+
+        public void setAccount(Account account) {
+            this.account = account;
+        }
+    }
+
+    public Set<AccountRole> getAccountRoles() {
+        return accountRoles;
+    }
+
+    public void setAccountRoles(Set<AccountRole> accountRoles) {
+        this.accountRoles = accountRoles;
+    }
 
     public Set<Character> getCharacters() {
         return characters;

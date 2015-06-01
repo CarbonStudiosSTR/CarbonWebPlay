@@ -19,6 +19,7 @@ public class RegisterServiceImpl implements RegisterService {
         a.setActive(true);
         a.setPremium(false);
         accountDAO.addAccount(a);
+        accountDAO.addAccountRole(a,"ROLE_USER");
     }
 
     @Override

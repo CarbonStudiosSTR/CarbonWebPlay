@@ -18,7 +18,7 @@ public class AccountDAOImpl implements AccountDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    public void setSessionFactory(SessionFactory sf){
+    public void setSessionFactory(SessionFactory sf) {
         this.sessionFactory = sf;
     }
 
@@ -26,8 +26,14 @@ public class AccountDAOImpl implements AccountDAO {
     public void addAccount(Account a) {
         Session session = this.sessionFactory.getCurrentSession();
         session.persist(a);
-        session.createSQLQuery("INSERT INTO account_roles(id_account,role) VALUES ("+a.getId()+",'ROLE_USER');").executeUpdate();
+
         logger.info("account created");
+    }
+
+    @Override
+    public void addAccountRole(Account a, String s) {
+        Session session = this.sessionFactory.getCurrentSession();
+        session.createSQLQuery("INSERT INTO account_roles(id_account,role) VALUES("+a.getId()+",'"+s+"')").executeUpdate();
     }
 
 
@@ -43,9 +49,9 @@ public class AccountDAOImpl implements AccountDAO {
 
     @Override
     public Account getAccount(String name, String password) {
-        Session session = this.sessionFactory.getCurrentSession() ;
-        Account a = (Account) session.createQuery("FROM account A where A.name = "+name+" AND A.password ="+password).uniqueResult();
-        logger.info("Person loaded successfully, Person details="+a);
+        Session session = this.sessionFactory.getCurrentSession();
+        Account a = (Account) session.createQuery("FROM account A where A.name = " + name + " AND A.password =" + password).uniqueResult();
+        logger.info("Person loaded successfully, Person details=" + a);
         return a;
 
     }

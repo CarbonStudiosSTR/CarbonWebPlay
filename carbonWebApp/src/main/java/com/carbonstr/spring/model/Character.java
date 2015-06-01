@@ -20,7 +20,7 @@ public class Character {
 
     @ManyToOne
     @JoinColumn(name="account")
-    private Account department;
+    private Account account;
 
     public int getId() {
         return id;
@@ -38,11 +38,11 @@ public class Character {
         this.name = name;
     }
 
-    public Account getDepartment() {
-        return department;
+    public Account getAccount() {
+        return account;
     }
 
-    public void setDepartment(Account department) {
-        this.department = department;
+    public void setAccount(Account account) {
+        this.account = account;
     }
 }
