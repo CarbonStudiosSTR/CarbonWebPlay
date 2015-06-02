@@ -52,6 +52,26 @@ public class MainController {
 
     }
 
+    @RequestMapping(value = "/account", method = RequestMethod.GET)
+    public String account() {
+        return "account/account";
+    }
+
+    @RequestMapping(value = "/news", method = RequestMethod.GET)
+    public String news() {
+        return "news/news";
+    }
+
+    @RequestMapping(value = "/library", method = RequestMethod.GET)
+    public String library() {
+        return "library/library";
+    }
+
+    @RequestMapping(value = "/statistics", method = RequestMethod.GET)
+    public String statistics() {
+        return "statistics/statistics";
+    }
+
     //for 403 access denied page
     @RequestMapping(value = "/403", method = RequestMethod.GET)
     public ModelAndView accesssDenied() {

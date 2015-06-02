@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="sec" uri="http://www.springframework.org/security/tags"%>
 
 <nav class="navbar navbar-default">
@@ -11,23 +11,17 @@
          <span class="icon-bar"></span>
          <span class="icon-bar"></span>
        </button>
-       <a class="navbar-brand" href="#">Brand</a>
+       <a class="navbar-brand">Darkland</a>
      </div>
 
      <!-- Collect the nav links, forms, and other content for toggling -->
      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
        <ul class="nav navbar-nav">
          <!--li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li-->
+		<li><a href="<c:url value='/news' />">News</a></li>
+		<li><a href="<c:url value='/library' />">Library</a></li>
+		<li><a href="<c:url value='/statistics' />">Statistics</a></li>    
 
-         <sec:authorize access="isAnonymous()">
-            <li><a href="<c:url value='/login' />">Login</a></li>
-         </sec:authorize>
-         <sec:authorize access="isAuthenticated()">
-            <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
-         </sec:authorize>
-
-
-         <li><a href="<c:url value='/register' />">Register</a></li>
          <!--li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
            <ul class="dropdown-menu" role="menu">
@@ -48,9 +42,14 @@
          <button type="submit" class="btn btn-default">Submit</button>
        </form-->
        <ul class="nav navbar-nav navbar-right">
-       	<sec:authorize access="hasRole('ROLE_USER')">
-         <li><a href="#">Account</a></li>
-        </sec:authorize>
+       	<sec:authorize access="isAnonymous()">
+            <li><a href="<c:url value='/login' />">Login</a></li>
+			<li><a href="<c:url value='/register' />">Register</a></li>
+         </sec:authorize>
+         <sec:authorize access="isAuthenticated()">
+			<li><a href="<c:url value='/account'/>" />Account</a></li>
+            <li><a href="<c:url value='/j_spring_security_logout'/>" />Logout</a></li>
+         </sec:authorize>
          <!--li class="dropdown">
            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
            <ul class="dropdown-menu" role="menu">
