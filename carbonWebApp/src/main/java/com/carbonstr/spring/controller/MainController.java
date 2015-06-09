@@ -29,7 +29,7 @@ public class MainController {
         ModelAndView model = new ModelAndView();
         model.addObject("title", "Spring Security Login Form - Database Authentication");
         model.addObject("message", "This page is for ROLE_ADMIN only!");
-        model.setViewName("admin");
+        model.setViewName("account/admin/admin");
         return model;
 
     }
@@ -40,7 +40,7 @@ public class MainController {
 
         ModelAndView model = new ModelAndView();
         if (error != null) {
-            model.addObject("error", "Invalid username and password!");
+            model.addObject("error", "Invalid account name and/or password!");
         }
 
         if (logout != null) {

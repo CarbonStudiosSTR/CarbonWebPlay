@@ -47,7 +47,10 @@
 			<li><a href="<c:url value='/register' />">Register</a></li>
          </sec:authorize>
          <sec:authorize access="isAuthenticated()">
-			<li><a href="<c:url value='/account'/>" />Account</a></li>
+            <sec:authorize access="hasRole('ROLE_ADMIN')">
+                <li><a href="<c:url value='/admin'/>" />Admin</a></li>
+            </sec:authorize>
+			<li><a href="<c:url value='/account'/>" />Account (<i>${pageContext.request.userPrincipal.name}</i>)</a> </li>
             <li><a href="<c:url value='/j_spring_security_logout'/>" />Logout</a></li>
          </sec:authorize>
          <!--li class="dropdown">
