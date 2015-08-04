@@ -8,9 +8,10 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.serialization.ClassResolvers;
+import io.netty.handler.codec.serialization.ObjectDecoder;
 import logic.CharacterCache;
-import netty.handlers.StringHandler;
+import netty.handlers.MoveActionHandler;
 
 public class Server {
 
@@ -43,8 +44,10 @@ public class Server {
                            // ch.pipeline().addLast("encoder", new ObjectEncoder());
                             //ch.pipeline().addLast("decoder", new ObjectDecoder(ClassResolvers.cacheDisabled(getClass().getClassLoader())));
                             //ch.pipeline().addLast("handler", new LoginActionHandler());
-                            ch.pipeline().addLast("stringdecoder", new StringDecoder());
-                            ch.pipeline().addLast("String writer", new StringHandler());
+                           // ch.pipeline().addLast("stringdecoder", new StringDecoder());
+                           // ch.pipeline().addLast("String writer", new StringHandler());
+                            ch.pipeline().addLast("decoder",new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
+                            ch.pipeline().addLast("moveHadler", new MoveActionHandler());
 
                         }
                     })

@@ -1,6 +1,7 @@
 package netty;
 
 
+import Actions.ActionImpl.MoveAction;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -9,7 +10,7 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.codec.serialization.ObjectEncoder;
 
 
 public class Client {
@@ -41,7 +42,10 @@ public class Client {
                 public void initChannel(SocketChannel ch) throws Exception {
                     //ch.pipeline().addLast(new TimeClientHandler());
                     //ch.pipeline().addLast("encoder", new ObjectEncoder());
-                    ch.pipeline().addLast("stringencoder", new StringEncoder());
+                    //ch.pipeline().addLast("stringencoder", new StringEncoder());
+                    ch.pipeline().addLast("encoder", new ObjectEncoder());
+
+
                 }
             });
 
@@ -49,7 +53,7 @@ public class Client {
             //LoginAction la = new LoginAction("dupa");
             //f.channel().writeAndFlush(new LoginAction("dupa"));
 
-            f.channel().writeAndFlush("blabla");
+            f.channel().writeAndFlush(new MoveAction());
 
             //System.out.println("wysylam LoginAction "+la.getLogin()+" z "+f.channel().localAddress().toString()+" do "+f.channel().remoteAddress().toString());
 
