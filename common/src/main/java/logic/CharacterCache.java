@@ -15,8 +15,6 @@ public class CharacterCache {
         playersById = new ConcurrentHashMap<Integer, Player>();
     }
 
-    ;
-
     public static CharacterCache getInstance() {
         return instance;
     }

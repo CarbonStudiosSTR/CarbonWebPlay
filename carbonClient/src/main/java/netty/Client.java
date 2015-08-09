@@ -25,9 +25,7 @@ public class Client {
     private final int port;
     private Integer id;
 
-    public static void main(String[] args) {
-        new Client("127.0.0.1", 5555).connect();
-    }
+
 
     public Client(String host, int port) {
         this.host = host;
