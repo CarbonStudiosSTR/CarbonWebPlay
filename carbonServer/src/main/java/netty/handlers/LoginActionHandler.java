@@ -1,8 +1,8 @@
 package netty.handlers;
 
 import actions.actionImpl.LoginAction;
-import actions.actionImpl.LoginAnswer;
 import entities.Player;
+import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import logic.CharacterCache;
@@ -21,9 +21,12 @@ public class LoginActionHandler extends SimpleChannelInboundHandler<LoginAction>
         Player p = new Player(la.getLogin());
         Integer id = CharacterCache.getInstance().addPlayer(p);
         la.executeAction();
+        la.setConnectionId(id);
         serverInitializer.setPlayerId(id);
-        LoginAnswer response = new LoginAnswer(id);
-        ctx.write(response);
-
+        ChannelFuture cf = ctx.write(la);
+        ctx.flush();
+        if (!cf.isSuccess()) {
+            System.out.println("Send failed: " + cf.cause());
+        }
     }
 }
