@@ -1,16 +1,20 @@
 package netty;
 
 
-import Actions.ActionImpl.MoveAction;
+import actions.actionImpl.LoginAction;
+import actions.playerActionImpl.MoveAction;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.serialization.ObjectEncoder;
+import util.MoveEnum;
+import utils.Connection;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
 
 public class Client {
@@ -19,6 +23,7 @@ public class Client {
 
     private final String host;
     private final int port;
+    private Integer id;
 
     public static void main(String[] args) {
         new Client("127.0.0.1", 5555).connect();
@@ -37,28 +42,40 @@ public class Client {
             b.group(workerPool);
             b.channel(NioSocketChannel.class);
             b.option(ChannelOption.SO_KEEPALIVE, true);
-            b.handler(new ChannelInitializer<SocketChannel>() {
-                @Override
-                public void initChannel(SocketChannel ch) throws Exception {
-                    //ch.pipeline().addLast(new TimeClientHandler());
-                    //ch.pipeline().addLast("encoder", new ObjectEncoder());
-                    //ch.pipeline().addLast("stringencoder", new StringEncoder());
-                    ch.pipeline().addLast("encoder", new ObjectEncoder());
+            b.handler(new ClientInitializer());
+            ChannelFuture f = b.connect(host, port).sync();
 
+            f.channel().writeAndFlush(new LoginAction("dupa2", "dupa2password"));
+
+            id = Connection.CONNECTION_ID;
+
+
+            BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+            for (; ; ) {
+                String line = in.readLine();
+                if (line != null) {
+                    if (line.equals("u")) {
+                        f.channel().writeAndFlush(new MoveAction(0, MoveEnum.UP_START));
+                    } else if (line.equals("d")) {
+                        f.channel().writeAndFlush(new MoveAction(Connection.CONNECTION_ID, MoveEnum.DOWN_START));
+                    } else if (line.equals("l")) {
+                        f.channel().writeAndFlush(new MoveAction(Connection.CONNECTION_ID, MoveEnum.LEFT_START));
+                    } else if (line.equals("r")) {
+                        f.channel().writeAndFlush(new MoveAction(Connection.CONNECTION_ID, MoveEnum.RIGHT_START));
+                    }
 
                 }
-            });
+                if ("bye".equals(line.toLowerCase())) {
+                    f.channel().closeFuture().sync();
+                    break;
+                }
+            }
 
-            ChannelFuture f = b.connect(host, port).sync();
-            //LoginAction la = new LoginAction("dupa");
-            //f.channel().writeAndFlush(new LoginAction("dupa"));
-
-            f.channel().writeAndFlush(new MoveAction());
-
-            //System.out.println("wysylam LoginAction "+la.getLogin()+" z "+f.channel().localAddress().toString()+" do "+f.channel().remoteAddress().toString());
 
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
             e.printStackTrace();
         } finally {
             workerPool.shutdownGracefully();
