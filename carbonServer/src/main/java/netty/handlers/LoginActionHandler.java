@@ -1,7 +1,7 @@
 package netty.handlers;
 
-import actionsssss.actionImplssss.LoginAction;
-import entitiesssss.Player;
+import actions.actionImpl.LoginAction;
+import entities.Player;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

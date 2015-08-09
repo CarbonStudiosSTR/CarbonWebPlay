@@ -1,4 +1,4 @@
-package actionsssss;
+package actions;
 
 public abstract class PlayerAction extends SimpleAction {
 

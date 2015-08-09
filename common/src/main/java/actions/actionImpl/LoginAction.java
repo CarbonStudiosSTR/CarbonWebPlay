@@ -1,6 +1,6 @@
-package actionsssss.actionImplssss;
+package actions.actionImpl;
 
-import actionsssss.SimpleAction;
+import actions.SimpleAction;
 
 public class LoginAction extends SimpleAction {
 

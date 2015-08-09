@@ -1,7 +1,7 @@
-package actionsssss.playerActionImpl;
+package actions.playerActionImpl;
 
-import actionsssss.PlayerAction;
-import entitiesssss.Player;
+import actions.PlayerAction;
+import entities.Player;
 import logic.CharacterCache;
 import util.MoveEnum;
 

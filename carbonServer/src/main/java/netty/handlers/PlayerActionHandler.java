@@ -1,7 +1,7 @@
 package netty.handlers;
 
 
-import actionsssss.SimpleAction;
+import actions.SimpleAction;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import logic.CharacterCache;

@@ -1,4 +1,4 @@
-package entitiesssss;
+package entities;
 
 public class Player {
 
