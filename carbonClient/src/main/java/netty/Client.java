@@ -1,8 +1,8 @@
 package netty;
 
 
-import actions.actionImpl.LoginAction;
-import actions.playerActionImpl.MoveAction;
+import Actions.ActionImpl.LoginAction;
+import Actions.PlayerActionImpl.MoveAction;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelOption;

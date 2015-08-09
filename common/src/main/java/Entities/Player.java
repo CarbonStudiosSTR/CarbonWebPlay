@@ -4,6 +4,19 @@ public class Player {
 
     private float posX;
     private float posY;
+    private String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Player(String name) {
+        this.name = name;
+    }
 
     public Player() {
         this.posX = 0;

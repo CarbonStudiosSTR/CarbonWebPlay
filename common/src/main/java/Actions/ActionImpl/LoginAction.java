@@ -4,10 +4,26 @@ import Actions.SimpleAction;
 
 public class LoginAction extends SimpleAction {
 
-    String login;
+    private String login;
+    private String password;
+    private Integer connectionId;
 
-    public LoginAction(String login){
+    public Integer getConnectionId() {
+        return connectionId;
+    }
+
+    public void setConnectionId(Integer connectionId) {
+        this.connectionId = connectionId;
+    }
+
+    public LoginAction(String login, String password) {
         this.login = login;
+        this.password = password;
+    }
+
+    @Override
+    public void executeAction() {
+        System.out.println(login + ", " + password);
     }
 
     public String getLogin() {
