@@ -1,4 +1,4 @@
-package actionsssss.playerActionImplsssss;
+package actionsssss.playerActionImpl;
 
 import actionsssss.PlayerAction;
 import entitiesssss.Player;
