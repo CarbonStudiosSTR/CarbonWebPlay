@@ -1,6 +1,7 @@
 package logic;
 
-import entities.Player;
+
+import entitiesssss.Player;
 
 import java.util.concurrent.ConcurrentHashMap;
 
