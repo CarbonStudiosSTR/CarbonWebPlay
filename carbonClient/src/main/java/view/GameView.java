@@ -1,20 +1,19 @@
 package view;
 
+import controller.InputController;
 import javafx.application.Application;
-import javafx.event.EventHandler;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class GameView extends Application {
 
-    public void startup(){
+    public void startup() {
         launch();
     }
 
@@ -31,18 +30,8 @@ public class GameView extends Application {
         final Label positionLabel = new Label("position");
         spriteGroup.getChildren().add(positionLabel);
 
-
         knightView.setFocusTraversable(true);
-
-        knightView.setOnKeyPressed(new EventHandler<KeyEvent>() {
-                                       @Override
-                                       public void handle(KeyEvent keyEvent) {
-
-
-                                       }
-                                   }
-
-        );
+        InputController.initInputController(knightView);
 
 
         Scene mainScene = new Scene(rootPane, 800, 600);

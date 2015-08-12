@@ -19,8 +19,8 @@ public class Player {
     }
 
     public Player() {
-        this.posX = 0;
-        this.posY = 0;
+        this.posX = 10;
+        this.posY = 10;
     }
 
     public float getPosX() {

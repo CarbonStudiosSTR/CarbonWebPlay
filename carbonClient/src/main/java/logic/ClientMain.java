@@ -1,5 +1,6 @@
 package logic;
 
+
 import netty.Client;
 import view.GameView;
 
@@ -12,6 +13,7 @@ public class ClientMain {
 
         ExecutorService es = Executors.newFixedThreadPool(2);
 
+
         es.execute(new Runnable() {
             @Override
             public void run() {
@@ -23,13 +25,15 @@ public class ClientMain {
             }
         });
 
+
         es.execute(new Runnable() {
             @Override
             public void run() {
-                new Client("127.0.0.1", 5555).connect();
+                Client.getInstance().connect();
             }
         });
 
+        System.out.println(es.toString());
 
                                                        /*
         new Client("127.0.0.1", 5555).connect();
