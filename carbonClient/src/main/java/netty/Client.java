@@ -34,7 +34,6 @@ public class Client {
 
     public void connect() {
 
-
         try {
             Bootstrap b = new Bootstrap();
             b.group(workerPool);

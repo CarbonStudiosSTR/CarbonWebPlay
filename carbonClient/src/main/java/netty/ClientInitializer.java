@@ -15,6 +15,7 @@ public class ClientInitializer extends ChannelInitializer<SocketChannel> {
         ch.pipeline().addLast("encoder", new ObjectEncoder());
         ch.pipeline().addLast("decoder", new ObjectDecoder(ClassResolvers.cacheDisabled(null)));
         ch.pipeline().addLast("login", new ClientLoginHandler());
+
     }
 
 }

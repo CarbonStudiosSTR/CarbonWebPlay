@@ -10,6 +10,7 @@ public class ClientLoginHandler extends SimpleChannelInboundHandler<actions.acti
 
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, actions.actionImpl.LoginAction la) throws Exception {
+        System.out.println(la.getConnectionId());
         Connection.CONNECTION_ID = la.getConnectionId();
     }
 }
