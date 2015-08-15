@@ -34,11 +34,6 @@ public class Client {
         this.port = port;
     }
 
-    public void writeAction(Action action) {
-        SelfActionHandler.selfExecute(action);
-        f.channel().writeAndFlush(action);
-    }
-
     public void connect() {
         try {
             b = new Bootstrap();
@@ -58,5 +53,12 @@ public class Client {
             System.out.println("koniec");
         }
     }
+
+    public void writeAction(Action action) {
+        SelfActionHandler.selfExecute(action);
+        f.channel().writeAndFlush(action);
+    }
+
+
 }
 

@@ -2,7 +2,6 @@ package netty.handlers;
 
 import actions.actionImpl.LoginAction;
 import entities.Player;
-import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import logic.CharacterCache;
@@ -20,13 +19,10 @@ public class LoginActionHandler extends SimpleChannelInboundHandler<LoginAction>
     protected void messageReceived(ChannelHandlerContext ctx, LoginAction la) throws Exception {
         Player p = new Player(la.getLogin());
         Integer id = CharacterCache.getInstance().addPlayer(p);
-        la.executeAction();
-        la.setConnectionId(id);
+        la.setPlayerId(id);
+        la.setPlayer(p);
         serverInitializer.setPlayerId(id);
-        ChannelFuture cf = ctx.write(la);
+        ctx.write(la);
         ctx.flush();
-        if (!cf.isSuccess()) {
-            System.out.println("Send failed: " + cf.cause());
-        }
     }
 }

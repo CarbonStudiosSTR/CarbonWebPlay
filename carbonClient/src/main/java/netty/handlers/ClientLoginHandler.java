@@ -1,7 +1,6 @@
 package netty.handlers;
 
 
-import entities.Player;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import logic.CharacterCache;
@@ -11,7 +10,7 @@ public class ClientLoginHandler extends SimpleChannelInboundHandler<actions.acti
 
     @Override
     protected void messageReceived(ChannelHandlerContext ctx, actions.actionImpl.LoginAction la) throws Exception {
-        Connection.CONNECTION_ID = la.getConnectionId();
-        CharacterCache.getInstance().addPlayer(new Player("playerId"+Connection.CONNECTION_ID),Connection.CONNECTION_ID);
+        Connection.CONNECTION_ID = la.getPlayerId();
+        CharacterCache.getInstance().addPlayer(la.getPlayer(), Connection.CONNECTION_ID);
     }
 }
