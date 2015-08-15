@@ -9,6 +9,7 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
+import netty.selfActionHandlers.SelfActionHandler;
 import utils.Connection;
 
 
@@ -24,7 +25,7 @@ public class Client {
     private Bootstrap b;
     private ChannelFuture f;
 
-    public static Client getInstance(){
+    public static Client getInstance() {
         return instance;
     }
 
@@ -34,11 +35,11 @@ public class Client {
     }
 
     public void writeAction(Action action) {
+        SelfActionHandler.selfExecute(action);
         f.channel().writeAndFlush(action);
     }
 
     public void connect() {
-
         try {
             b = new Bootstrap();
             b.group(workerPool);
@@ -49,29 +50,6 @@ public class Client {
             f.channel().writeAndFlush(new LoginAction("dupa2", "dupa2password"));
             id = Connection.CONNECTION_ID;
 
-
-           /* BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-            for (; ; ) {
-                String line = in.readLine();
-                if (line != null) {
-                    if (line.equals("u")) {
-                        f.channel().writeAndFlush(new MoveAction(0, MoveEnum.UP_START));
-                    } else if (line.equals("d")) {
-                        f.channel().writeAndFlush(new MoveAction(Connection.CONNECTION_ID, MoveEnum.DOWN_START));
-                    } else if (line.equals("l")) {
-                        f.channel().writeAndFlush(new MoveAction(Connection.CONNECTION_ID, MoveEnum.LEFT_START));
-                    } else if (line.equals("r")) {
-                        f.channel().writeAndFlush(new MoveAction(Connection.CONNECTION_ID, MoveEnum.RIGHT_START));
-                    }
-
-                }
-                if ("bye".equals(line.toLowerCase())) {
-                    f.channel().closeFuture().sync();
-                    break;
-                }
-            }  */
-
-
             f.channel().closeFuture().sync();
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -79,7 +57,6 @@ public class Client {
             workerPool.shutdownGracefully();
             System.out.println("koniec");
         }
-
     }
 }
 

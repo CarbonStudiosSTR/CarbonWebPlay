@@ -19,7 +19,6 @@ public class GameView extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-
         Pane rootPane = new StackPane();
         Group spriteGroup = new Group();
         ImageView knightView = new ImageView(new Image("sprite/brutal-helm.png"));
@@ -32,7 +31,6 @@ public class GameView extends Application {
 
         knightView.setFocusTraversable(true);
         InputController.initInputController(knightView);
-
 
         Scene mainScene = new Scene(rootPane, 800, 600);
         stage.setScene(mainScene);

@@ -28,6 +28,10 @@ public class CharacterCache {
         return i;
     }
 
+    public void addPlayer(Player player, Integer id){
+        playersById.put(id,player);
+    }
+
     public void removePlayer(Integer i) {
         playersById.remove(i);
     }
@@ -37,8 +41,10 @@ public class CharacterCache {
     }
 
     public void listPlayers() {
-        for (int i = 0; i < playersById.size(); i++)
-            System.out.println("id = " + i + " player login: " + playersById.get(i).getName() + " pos " + playersById.get(i).getPosX() + "," + playersById.get(i).getPosY());
+        for (Player player : playersById.values()) {
+            System.out.println(" player login: " + player.getName() + " pos " + player.getPosX() + "," + player.getPosY());
+        }
+
     }
 
 }

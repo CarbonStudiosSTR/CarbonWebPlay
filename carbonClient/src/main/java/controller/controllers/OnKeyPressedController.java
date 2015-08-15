@@ -8,7 +8,6 @@ import netty.Client;
 import util.MoveEnum;
 import utils.Connection;
 
-
 public class OnKeyPressedController implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
