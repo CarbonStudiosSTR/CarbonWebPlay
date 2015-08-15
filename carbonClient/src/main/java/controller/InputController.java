@@ -2,8 +2,6 @@ package controller;
 
 
 import controller.controllers.OnKeyPressedController;
-import controller.controllers.onKeyReleasedController;
-import controller.controllers.onMusePressedController;
 import controller.controllers.OnMouseReleasedController;
 import javafx.scene.image.ImageView;
 
