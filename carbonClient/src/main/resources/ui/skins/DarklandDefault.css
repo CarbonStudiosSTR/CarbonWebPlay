@@ -1,0 +1,76 @@
+.root {
+    -fx-font-family: "Traditional Arabic";
+    -fx-font-size: 16.0px;
+    -fx-base: #141414;
+    -fx-background: #272727;
+    -fx-focus-color: #85BD71;
+    -fx-control-inner-background: #141414;
+    -fx-inner-border: linear-gradient(to bottom, derive(-fx-color,34.0%) 0%, derive(-fx-color,-18.0%) 100%);
+    -fx-body-color: linear-gradient( to bottom, derive(-fx-color, 34.0%) 0%, derive(-fx-color, -18.0%) 100%);
+}
+
+.menu-button {
+    -fx-background-radius: 0, 0, -1, -2;
+}
+
+.menu-button .label {
+    -fx-padding: 5px 20px 5px 12px;
+}
+
+.button {
+    -fx-width: 100px;
+    -fx-height: 30px;
+}
+
+.button:focused, .text-field:focused {
+    -fx-focus-color: transparent;
+}
+
+.menu-button .arrow-button {
+    -fx-padding: 5px 8px 5px 0px;
+}
+
+.choice-box {
+    -fx-padding: 0 8px 0 0;
+}
+
+.sign-in-label {
+    -fx-font-size: 20.0px;
+    -fx-font-color: "white";
+}
+
+.choice-box .label {
+    -fx-padding: 5px 6px 5px 8px;
+}
+
+.choice-box .open-button {
+    -fx-padding: 1 0 0 10px;
+}
+
+.combo-box-base:editable .text-field, .combo-box-base .arrow-button, .combo-box .list-cell {
+    -fx-padding: 5px 8px 5px 8px;
+}
+
+.check-box .box {
+    -fx-padding: 0.3;
+}
+
+.radio-button .radio {
+    -fx-padding: 0.4;
+}
+
+.label, .check-box, .radio-button {
+    -fx-text-fill: -fx-text-background-color;
+}
+
+.combo-box-base .arrow-button {
+    -fx-background-insets: 0, 2, 3;
+}
+
+.choice-box .label {
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.menu-button .label {
+    -fx-text-fill: -fx-text-base-color;
+}

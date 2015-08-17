@@ -34,7 +34,7 @@ public class MainController {
 
     }
 
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/sign_in", method = RequestMethod.GET)
     public ModelAndView login(@RequestParam(value = "error", required = false) String error,
                               @RequestParam(value = "logout", required = false) String logout) {
 
@@ -46,7 +46,7 @@ public class MainController {
         if (logout != null) {
             model.addObject("msg", "You've been logged out successfully.");
         }
-        model.setViewName("login");
+        model.setViewName("sign_in");
 
         return model;
 
@@ -78,7 +78,7 @@ public class MainController {
 
         ModelAndView model = new ModelAndView();
 
-        //check if user is login
+        //check if user is sign_in
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (!(auth instanceof AnonymousAuthenticationToken)) {
             UserDetails userDetail = (UserDetails) auth.getPrincipal();

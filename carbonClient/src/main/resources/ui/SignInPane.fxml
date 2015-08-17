@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="signInPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+           minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8"
+           fx:controller="dl.view.ui.sign_in.SignInPaneController">
+    <children>
+        <ImageView fitHeight="768.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@backgroundGUI.jpg"/>
+            </image>
+        </ImageView>
+        <BorderPane prefHeight="768.0" prefWidth="1366.0">
+            <top>
+                <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <ImageView fitHeight="149.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@DarklandLogo.png"/>
+                            </image>
+                        </ImageView>
+                    </children>
+                </VBox>
+            </top>
+            <center>
+                <VBox alignment="TOP_CENTER" prefHeight="568.0" prefWidth="160.0" BorderPane.alignment="CENTER">
+                    <children>
+                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false"/>
+                        <Label alignment="CENTER" styleClass="sign-in-label" text="Account Name"/>
+                        <Group>
+                            <children>
+                                <TextField prefHeight="30.0" prefWidth="300.0"/>
+                            </children>
+                        </Group>
+                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false"/>
+                        <Label alignment="CENTER" styleClass="sign-in-label" text="Password"/>
+                        <Group>
+                            <children>
+                                <TextField prefHeight="30.0" prefWidth="300.0"/>
+                            </children>
+                        </Group>
+                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false"/>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0"
+                                prefWidth="90.0" text="Sign in"/>
+                    </children>
+                </VBox>
+            </center>
+            <bottom>
+                <GridPane prefHeight="82.0" prefWidth="1367.0" BorderPane.alignment="CENTER">
+                    <columnConstraints>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1295.0" minWidth="10.0" prefWidth="1295.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="0.0" prefWidth="71.0"/>
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                    </rowConstraints>
+                    <children>
+                        <VBox alignment="BOTTOM_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0"
+                                        text="Options"/>
+                                <Separator prefHeight="20.0" prefWidth="160.0" visible="false"/>
+                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                        prefHeight="30.0" prefWidth="90.0" text="Quit"/>
+                                <Separator prefHeight="15.0" prefWidth="160.0" visible="false"/>
+                            </children>
+                        </VBox>
+                    </children>
+                </GridPane>
+            </bottom>
+        </BorderPane>
+    </children>
+</StackPane>

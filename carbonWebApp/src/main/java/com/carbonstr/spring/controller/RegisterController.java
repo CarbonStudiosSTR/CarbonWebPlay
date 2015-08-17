@@ -30,7 +30,7 @@ public class RegisterController {
     @RequestMapping(value = "/register/create", method = RequestMethod.POST)
     public String createAccount(@ModelAttribute("account") Account a) {
         this.registerService.registerAccount(a);
-        return "redirect:/login";
+        return "redirect:/sign_in";
     }
 
 }

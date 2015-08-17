@@ -1,0 +1,59 @@
+.root {
+    -fx-font-family: "Ringbearer";
+    -fx-font-size: 20px;
+    -fx-base: #C49A71;
+    -fx-background: #333333;
+    -fx-focus-color: #616161;
+    -fx-control-inner-background: #C1C1C1;
+    -fx-inner-border: linear-gradient(to bottom, derive(-fx-color,7.0%) 0%, derive(-fx-color,6.0%) 100%);
+    -fx-body-color: linear-gradient( to bottom, derive(-fx-color, 7.0%) 0%, derive(-fx-color, 6.0%) 100%);
+}
+.button, .toggle-button, .choice-box {
+    -fx-background-radius: 0, 0, -1, -2;
+    -fx-padding: 16px 23px 16px 23px;
+}
+.menu-button {
+    -fx-background-radius: 0, 0, -1, -2;
+}
+.menu-button .label {
+    -fx-padding: 16px 31px 16px 23px;
+}
+.menu-button .arrow-button {
+    -fx-padding: 16px 19px 16px 0px;
+}
+.choice-box {
+    -fx-padding: 0 19px 0 0;
+}
+.choice-box .label {
+    -fx-padding: 16px 17px 16px 19px;
+}
+.choice-box .open-button {
+    -fx-padding: 1 0 0 21px;
+}
+.combo-box-base:editable .text-field, .combo-box-base .arrow-button, .combo-box .list-cell {
+    -fx-padding: 16px 19px 16px 19px;
+}
+.check-box .box {
+    -fx-padding: 0.35em;
+}
+.radio-button .radio {
+    -fx-padding: 0.433333em;
+}
+.label, .check-box, .radio-button {
+    -fx-text-fill: -fx-text-background-color;
+}
+.button, .toggle-button, .check-box .box, .radio-button .radio, .choice-box, .menu-button, .tab, .combo-box-base {
+    -fx-background-insets: 0 0 -1 0, 0, 3, 4;
+}
+.button:focused, .toggle-button:focused, .check-box:focused .box, .radio-button:focused .radio, .choice-box:focused, .menu-button:focused, .combo-box-base:focused {
+    -fx-background-insets: -1.4, 0, 3, 4;
+}
+.combo-box-base .arrow-button {
+    -fx-background-insets: 0, 3, 4;
+}
+.choice-box .label { /* Workaround for RT-20015 */
+    -fx-text-fill: -fx-text-base-color;
+}
+.menu-button .label { /* Workaround for RT-20015 */
+    -fx-text-fill: -fx-text-base-color;
+}

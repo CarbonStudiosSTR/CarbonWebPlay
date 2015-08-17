@@ -1,6 +1,5 @@
 package com.carbonstr.spring.model;
 
-
 import javax.persistence.*;
 import java.sql.Date;
 import java.util.Set;
@@ -9,151 +8,192 @@ import java.util.Set;
 @Table(name = "account")
 public class Account {
 
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private int id;
+
+  private String name;
+
+  private String email;
+
+  private String password;
+
+  @Column(name = "create_date")
+  private Date creationDate;
+
+  @Column(name = "security_question")
+  private String securityQuestion;
+
+  @Column(name = "security_answer")
+  private String securityAnswer;
+
+  private boolean active;
+
+  private boolean premium;
+
+  @OneToMany(mappedBy = "id")
+  private Set<Character> characters;
+
+  @OneToMany(mappedBy = "id")
+  private Set<AccountRole> accountRoles;
+
+  @Entity
+  @Table(name = "account_role")
+  public class AccountRole {
+
+    public AccountRole(String role) {
+
+      this.role = role;
+    }
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    private String name;
-    private String email;
-    private String password;
-    @Column(name = "create_date")
-    private Date creationDate;
-    @Column(name = "security_question")
-    private String securityQuestion;
-    @Column(name = "security_answer")
-    private String securityAnswer;
-    private boolean active;
-    private boolean premium;
 
-    @OneToMany(mappedBy = "id")
-    private Set<Character> characters;
-    @OneToMany(mappedBy = "id")
-    private Set<AccountRole> accountRoles;
+    private String role;
 
-    @Entity
-    @Table(name = "account_role")
-    public class AccountRole{
-        public AccountRole(String role) {
-            this.role = role;
-        }
-
-        @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        private int id;
-        private String role;
-        @ManyToOne
-        @JoinColumn(name="account")
-        private Account account;
-
-        public int getId() {
-            return id;
-        }
-
-        public void setId(int id) {
-            this.id = id;
-        }
-
-        public String getRole() {
-            return role;
-        }
-
-        public void setRole(String role) {
-            this.role = role;
-        }
-
-        public Account getAccount() {
-            return account;
-        }
-
-        public void setAccount(Account account) {
-            this.account = account;
-        }
-    }
-
-    public Set<AccountRole> getAccountRoles() {
-        return accountRoles;
-    }
-
-    public void setAccountRoles(Set<AccountRole> accountRoles) {
-        this.accountRoles = accountRoles;
-    }
-
-    public Set<Character> getCharacters() {
-        return characters;
-    }
-
-    public void setCharacters(Set<Character> characters) {
-        this.characters = characters;
-    }
+    @ManyToOne
+    @JoinColumn(name = "account")
+    private Account account;
 
     public int getId() {
-        return id;
+
+      return id;
     }
 
     public void setId(int id) {
-        this.id = id;
+
+      this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getRole() {
+
+      return role;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setRole(String role) {
+
+      this.role = role;
     }
 
-    public String getEmail() {
-        return email;
+    public Account getAccount() {
+
+      return account;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+    public void setAccount(Account account) {
 
-    public String getPassword() {
-        return password;
+      this.account = account;
     }
+  }
 
-    public void setPassword(String password) {
-        this.password = password;
-    }
+  public Set<AccountRole> getAccountRoles() {
 
-    public Date getCreationDate() {
-        return creationDate;
-    }
+    return accountRoles;
+  }
 
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
+  public void setAccountRoles(Set<AccountRole> accountRoles) {
 
-    public String getSecurityQuestion() {
-        return securityQuestion;
-    }
+    this.accountRoles = accountRoles;
+  }
 
-    public void setSecurityQuestion(String securityQuestion) {
-        this.securityQuestion = securityQuestion;
-    }
+  public Set<Character> getCharacters() {
 
-    public String getSecurityAnswer() {
-        return securityAnswer;
-    }
+    return characters;
+  }
 
-    public void setSecurityAnswer(String securityAnswer) {
-        this.securityAnswer = securityAnswer;
-    }
+  public void setCharacters(Set<Character> characters) {
 
-    public boolean isActive() {
-        return active;
-    }
+    this.characters = characters;
+  }
 
-    public void setActive(boolean active) {
-        this.active = active;
-    }
+  public int getId() {
 
-    public boolean isPremium() {
-        return premium;
-    }
+    return id;
+  }
 
-    public void setPremium(boolean premium) {
-        this.premium = premium;
-    }
+  public void setId(int id) {
+
+    this.id = id;
+  }
+
+  public String getName() {
+
+    return name;
+  }
+
+  public void setName(String name) {
+
+    this.name = name;
+  }
+
+  public String getEmail() {
+
+    return email;
+  }
+
+  public void setEmail(String email) {
+
+    this.email = email;
+  }
+
+  public String getPassword() {
+
+    return password;
+  }
+
+  public void setPassword(String password) {
+
+    this.password = password;
+  }
+
+  public Date getCreationDate() {
+
+    return creationDate;
+  }
+
+  public void setCreationDate(Date creationDate) {
+
+    this.creationDate = creationDate;
+  }
+
+  public String getSecurityQuestion() {
+
+    return securityQuestion;
+  }
+
+  public void setSecurityQuestion(String securityQuestion) {
+
+    this.securityQuestion = securityQuestion;
+  }
+
+  public String getSecurityAnswer() {
+
+    return securityAnswer;
+  }
+
+  public void setSecurityAnswer(String securityAnswer) {
+
+    this.securityAnswer = securityAnswer;
+  }
+
+  public boolean isActive() {
+
+    return active;
+  }
+
+  public void setActive(boolean active) {
+
+    this.active = active;
+  }
+
+  public boolean isPremium() {
+
+    return premium;
+  }
+
+  public void setPremium(boolean premium) {
+
+    this.premium = premium;
+  }
 }

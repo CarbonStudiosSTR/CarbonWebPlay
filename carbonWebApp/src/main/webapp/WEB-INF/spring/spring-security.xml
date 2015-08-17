@@ -42,7 +42,7 @@
         <beans:property name="driverClassName" value="org.postgresql.Driver" />
         <beans:property name="url" value="jdbc:postgresql://localhost:5432/carbonTest?autoReconnect=true;" />
         <beans:property name="username" value="postgres" />
-        <beans:property name="password" value="kielbasa" />
+        <beans:property name="password" value="morlin1" />
     </beans:bean>
 
 

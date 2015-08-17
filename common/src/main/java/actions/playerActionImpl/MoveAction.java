@@ -2,7 +2,7 @@ package actions.playerActionImpl;
 
 import actions.PlayerAction;
 import entities.Player;
-import logic.CharacterCache;
+import dl.logic.CharacterCache;
 import util.MoveEnum;
 
 public class MoveAction extends PlayerAction {
