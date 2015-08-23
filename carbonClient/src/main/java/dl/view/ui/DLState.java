@@ -2,5 +2,5 @@ package dl.view.ui;
 
 public enum DLState {
 
-    SIGN_IN
+    SIGN_IN, CHARACTER_SELECT
 }

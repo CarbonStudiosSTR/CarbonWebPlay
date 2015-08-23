@@ -1,6 +1,6 @@
 .root {
     -fx-font-family: "Traditional Arabic";
-    -fx-font-size: 16.0px;
+    -fx-font-size: 18.0px;
     -fx-base: #141414;
     -fx-background: #272727;
     -fx-focus-color: #85BD71;
@@ -18,12 +18,8 @@
 }
 
 .button {
-    -fx-width: 100px;
-    -fx-height: 30px;
-}
-
-.button:focused, .text-field:focused {
-    -fx-focus-color: transparent;
+    -fx-pref-width: 200px;
+    -fx-pref-height: 60px;
 }
 
 .menu-button .arrow-button {

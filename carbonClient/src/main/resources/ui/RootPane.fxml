@@ -2,9 +2,11 @@
 
 
 <?import javafx.scene.layout.StackPane?>
-<StackPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+<StackPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+           minWidth="-Infinity"
            prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8"
            fx:controller="dl.view.ui.RootPaneController">
 
-        <fx:include source="SignInPane.fxml"/>
+    <fx:include source="SignInPane.fxml"/>
+    <fx:include source="CharacterSelectPane.fxml"/>
 </StackPane>

@@ -44,13 +44,13 @@
                             </children>
                         </Group>
                         <Separator prefHeight="45.0" prefWidth="160.0" visible="false"/>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="30.0"
-                                prefWidth="90.0" text="Sign in"/>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onMouseClicked="#onSignInButtonClicked" text="Sign in" textAlignment="CENTER"/>
                     </children>
                 </VBox>
             </center>
             <bottom>
-                <GridPane prefHeight="82.0" prefWidth="1367.0" BorderPane.alignment="CENTER">
+                <GridPane prefHeight="113.0" prefWidth="1365.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="1295.0" minWidth="10.0" prefWidth="1295.0"/>
                         <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="0.0" prefWidth="71.0"/>
@@ -59,13 +59,14 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
                     </rowConstraints>
                     <children>
-                        <VBox alignment="BOTTOM_RIGHT" prefHeight="200.0" prefWidth="100.0">
+                        <VBox alignment="BOTTOM_RIGHT" prefHeight="154.0" prefWidth="1295.0">
                             <children>
-                                <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="89.0"
-                                        text="Options"/>
-                                <Separator prefHeight="20.0" prefWidth="160.0" visible="false"/>
                                 <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                        prefHeight="30.0" prefWidth="90.0" text="Quit"/>
+                                        text="Options" textAlignment="CENTER"/>
+                                <Separator prefHeight="20.0" prefWidth="160.0" visible="false"/>
+                                <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER"
+                                        mnemonicParsing="false" onMouseClicked="#onQuitButtonCLicked" text="Quit"
+                                        textAlignment="CENTER"/>
                                 <Separator prefHeight="15.0" prefWidth="160.0" visible="false"/>
                             </children>
                         </VBox>

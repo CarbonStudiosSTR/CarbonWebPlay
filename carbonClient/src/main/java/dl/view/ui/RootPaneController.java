@@ -1,5 +1,6 @@
 package dl.view.ui;
 
+import dl.view.ui.character_select.CharacterSelectPaneController;
 import dl.view.ui.sign_in.SignInPaneController;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +17,9 @@ public class RootPaneController {
    private SignInPaneController signInPaneController;
 
    @Autowired
+   private CharacterSelectPaneController characterSelectPaneController;
+
+   @Autowired
    private Anim8Service anim8Service;
 
    @Autowired
@@ -29,13 +33,16 @@ public class RootPaneController {
          NodeController currentNodeController = stateController(currentState);
          NodeController newNodeController = stateController(newState);
 
-         anim8Service.fadeChainSwap(currentNodeController.getNode(), newNodeController.getNode());
+         currentNodeController.getNode().setVisible(false);
+         newNodeController.getNode().setVisible(true);
+
+//         anim8Service.fadeChainSwap(currentNodeController.getNode(), newNodeController.getNode());
       });
    }
 
    @NotNull
    private NodeController stateController(@NotNull final DLState state) {
 
-      return state == SIGN_IN ? signInPaneController : signInPaneController;
+      return state == SIGN_IN ? signInPaneController : characterSelectPaneController;
    }
 }
