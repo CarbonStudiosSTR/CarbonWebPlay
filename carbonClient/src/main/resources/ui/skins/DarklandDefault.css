@@ -1,6 +1,6 @@
 .root {
     -fx-font-family: "Traditional Arabic";
-    -fx-font-size: 18.0px;
+    -fx-font-size: 20.0px;
     -fx-base: #141414;
     -fx-background: #272727;
     -fx-focus-color: #85BD71;
@@ -18,12 +18,18 @@
 }
 
 .button {
+
     -fx-pref-width: 200px;
     -fx-pref-height: 60px;
 }
 
+.button:focused, .text-field:focused {
+    -fx-focus-color: transparent;
+}
+
 .menu-button .arrow-button {
     -fx-padding: 5px 8px 5px 0px;
+
 }
 
 .choice-box {

@@ -35,7 +35,7 @@ public class SignInPaneController implements NodeController {
    @FXML
    public void onSignInButtonClicked() {
 
-      dlContext.stateProperty().setValue(CHARACTER_SELECT);
+      dlContext.stateProperty().setValue(CHARACTER_MANAGEMENT);
    }
 
    @FXML

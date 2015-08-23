@@ -8,5 +8,6 @@
            fx:controller="dl.view.ui.RootPaneController">
 
     <fx:include source="SignInPane.fxml"/>
-    <fx:include source="CharacterSelectPane.fxml"/>
+    <fx:include source="CharacterManagementPane.fxml"/>
+    <fx:include source="InGamePane.fxml"/>
 </StackPane>

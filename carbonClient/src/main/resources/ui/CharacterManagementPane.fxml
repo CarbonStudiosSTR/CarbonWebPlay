@@ -2,10 +2,11 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.*?>
-<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="characterSelectPane" maxHeight="-Infinity" maxWidth="-Infinity"
+<?import javafx.scene.text.Text?>
+<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="characterManagementPane" maxHeight="-Infinity" maxWidth="-Infinity"
            minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" visible="false"
            xmlns="http://javafx.com/javafx/8"
-           fx:controller="dl.view.ui.character_select.CharacterSelectPaneController">
+           fx:controller="dl.view.ui.character_management.CharacterManagementPaneController">
     <children>
         <GridPane>
             <columnConstraints>
@@ -31,13 +32,20 @@
                                 text="Create Character" GridPane.halignment="CENTER"/>
                         <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
                                 text="Delete Character" GridPane.columnIndex="1" GridPane.halignment="CENTER"/>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Enter World"
-                                GridPane.columnIndex="2" GridPane.halignment="CENTER"/>
-                        <Button alignment="CENTER" onMouseClicked="#onBackButtonClicked" contentDisplay="CENTER"
-                                mnemonicParsing="false" text="Back" GridPane.columnIndex="3"
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onMouseClicked="#onEnterWorldClicked" text="Enter World" GridPane.columnIndex="2"
+                                GridPane.halignment="CENTER"/>
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
+                                onMouseClicked="#onBackButtonClicked" text="Back" GridPane.columnIndex="3"
                                 GridPane.halignment="CENTER"/>
                     </children>
                 </GridPane>
+                <BorderPane prefHeight="639.0" prefWidth="1363.0">
+                    <center>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Character Select Placeholder"
+                              BorderPane.alignment="CENTER"/>
+                    </center>
+                </BorderPane>
             </children>
         </GridPane>
     </children>

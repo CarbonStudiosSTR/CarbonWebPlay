@@ -1,17 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.Group?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.*?>
-<StackPane xmlns:fx="http://javafx.com/fxml/1" fx:id="signInPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-           minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8"
-           fx:controller="dl.view.ui.sign_in.SignInPaneController">
+
+<StackPane fx:id="signInPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="dl.view.ui.sign_in.SignInPaneController">
     <children>
         <ImageView fitHeight="768.0" fitWidth="1366.0" pickOnBounds="true" preserveRatio="true">
             <image>
-                <Image url="@backgroundGUI.jpg"/>
+                <Image url="@backgroundGUI.jpg" />
             </image>
         </ImageView>
         <BorderPane prefHeight="768.0" prefWidth="1366.0">
@@ -20,7 +22,7 @@
                     <children>
                         <ImageView fitHeight="149.0" fitWidth="710.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@DarklandLogo.png"/>
+                                <Image url="@DarklandLogo.png" />
                             </image>
                         </ImageView>
                     </children>
@@ -29,45 +31,41 @@
             <center>
                 <VBox alignment="TOP_CENTER" prefHeight="568.0" prefWidth="160.0" BorderPane.alignment="CENTER">
                     <children>
-                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false"/>
-                        <Label alignment="CENTER" styleClass="sign-in-label" text="Account Name"/>
+                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false" />
+                        <Label alignment="CENTER" styleClass="sign-in-label" text="Account Name" />
                         <Group>
                             <children>
-                                <TextField prefHeight="30.0" prefWidth="300.0"/>
+                                <TextField prefHeight="30.0" prefWidth="300.0" />
                             </children>
                         </Group>
-                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false"/>
-                        <Label alignment="CENTER" styleClass="sign-in-label" text="Password"/>
+                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false" />
+                        <Label alignment="CENTER" styleClass="sign-in-label" text="Password" />
                         <Group>
                             <children>
-                                <TextField prefHeight="30.0" prefWidth="300.0"/>
+                                <TextField prefHeight="30.0" prefWidth="300.0" />
                             </children>
                         </Group>
-                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false"/>
-                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                onMouseClicked="#onSignInButtonClicked" text="Sign in" textAlignment="CENTER"/>
+                        <Separator prefHeight="45.0" prefWidth="160.0" visible="false" />
+                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onSignInButtonClicked" text="Sign in" textAlignment="CENTER" />
                     </children>
                 </VBox>
             </center>
             <bottom>
                 <GridPane prefHeight="113.0" prefWidth="1365.0" BorderPane.alignment="CENTER">
                     <columnConstraints>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1295.0" minWidth="10.0" prefWidth="1295.0"/>
-                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="0.0" prefWidth="71.0"/>
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="1295.0" minWidth="10.0" prefWidth="1295.0" />
+                        <ColumnConstraints hgrow="SOMETIMES" maxWidth="445.0" minWidth="0.0" prefWidth="71.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                     <children>
                         <VBox alignment="BOTTOM_RIGHT" prefHeight="154.0" prefWidth="1295.0">
                             <children>
-                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false"
-                                        text="Options" textAlignment="CENTER"/>
-                                <Separator prefHeight="20.0" prefWidth="160.0" visible="false"/>
-                                <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER"
-                                        mnemonicParsing="false" onMouseClicked="#onQuitButtonCLicked" text="Quit"
-                                        textAlignment="CENTER"/>
-                                <Separator prefHeight="15.0" prefWidth="160.0" visible="false"/>
+                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" text="Options" textAlignment="CENTER" />
+                                <Separator prefHeight="20.0" prefWidth="160.0" visible="false" />
+                                <Button fx:id="quitButton" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#onQuitButtonCLicked" text="Quit" textAlignment="CENTER" />
+                                <Separator prefHeight="15.0" prefWidth="160.0" visible="false" />
                             </children>
                         </VBox>
                     </children>
