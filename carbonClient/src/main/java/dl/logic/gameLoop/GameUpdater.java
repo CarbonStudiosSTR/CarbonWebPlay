@@ -20,13 +20,12 @@ public class GameUpdater {
     private void changeStates(long now) {
         for (ActionWrapper actionWrapper : ActionQueue.getInstance().getActions()) {
             actionDispatcher.dispatchAction(actionWrapper);
-            updateOldAction(actionWrapper, now);
         }
     }
 
     private void updateOldAction(ActionWrapper actionWrapper, long now) {
         float timestamp = actionWrapper.getTimestamp();
-        while (now - timestamp > 0.0166f) {
+        while (now - timestamp > 0.0166f * 1e9) {
             CharacterCache.getInstance().getPlayer(actionWrapper.getId()).update();
             timestamp = +0.0166f;
         }

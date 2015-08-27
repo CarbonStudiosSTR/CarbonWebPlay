@@ -13,7 +13,7 @@ public class GameLoop extends AnimationTimer{
 
     private static final float timeStep = 0.0166f;
     private float accumulatedTime = 0;
-    private float maximumStep;
+    private float maximumStep = 10;
 
     public GameLoop(GameUpdater updater, Runnable renderer) {
         this.updater = updater;
@@ -29,7 +29,7 @@ public class GameLoop extends AnimationTimer{
 
         float secondsElapsed = (currentTime - previousTime) / 1e9f;
         float secondsElapsedCapped = Math.min(secondsElapsed, getMaximumStep());
-        accumulatedTime += secondsElapsed;
+        accumulatedTime += secondsElapsedCapped;
         previousTime = currentTime;
 
         while (accumulatedTime >= timeStep) {
