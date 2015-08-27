@@ -2,10 +2,9 @@ package dl.logic.gameLoop;
 
 import javafx.animation.AnimationTimer;
 
-public class GameLoop extends AnimationTimer{
+public class ServerGameLoop extends AnimationTimer {
 
-    private final GameUpdater updater;
-    private final Runnable renderer;
+    private final ServerUpdater updater;
 
     private long previousTime = 0;
     private float secondsElapsedSinceLastFpsUpdate = 0f;
@@ -15,9 +14,8 @@ public class GameLoop extends AnimationTimer{
     private float accumulatedTime = 0;
     private float maximumStep;
 
-    public GameLoop(GameUpdater updater, Runnable renderer) {
+    public ServerGameLoop(ServerUpdater updater) {
         this.updater = updater;
-        this.renderer = renderer;
     }
 
     @Override
@@ -29,14 +27,13 @@ public class GameLoop extends AnimationTimer{
 
         float secondsElapsed = (currentTime - previousTime) / 1e9f;
         float secondsElapsedCapped = Math.min(secondsElapsed, getMaximumStep());
-        accumulatedTime += secondsElapsed;
+        accumulatedTime += secondsElapsedCapped;
         previousTime = currentTime;
 
         while (accumulatedTime >= timeStep) {
             updater.update(currentTime);
             accumulatedTime -= timeStep;
         }
-        renderer.run();
 
         secondsElapsedSinceLastFpsUpdate += secondsElapsed;
         framesSinceLastFpsUpdate++;
@@ -48,16 +45,17 @@ public class GameLoop extends AnimationTimer{
     }
 
     @Override
-    public void stop()
-    {
+    public void stop() {
         super.stop();
         previousTime = 0;
         accumulatedTime = 0;
         secondsElapsedSinceLastFpsUpdate = 0f;
         framesSinceLastFpsUpdate = 0;
+
     }
 
     public float getMaximumStep() {
         return maximumStep;
     }
 }
+

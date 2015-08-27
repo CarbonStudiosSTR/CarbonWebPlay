@@ -1,6 +1,8 @@
 package entities;
 
-public class Player implements Entity{
+import java.io.Serializable;
+
+public class Player implements Entity, Serializable{
 
     private float posX;
     private float posY;
@@ -16,6 +18,8 @@ public class Player implements Entity{
 
     public Player(String name) {
         this.name = name;
+        this.posX = 10;
+        this.posY = 10;
     }
 
     public Player() {
@@ -25,7 +29,7 @@ public class Player implements Entity{
 
     @Override
     public void update() {
-        System.out.println("plajer zapdejtowany");
+
     }
 
     public float getPosX() {

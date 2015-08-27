@@ -6,19 +6,16 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import dl.logic.cache.CharacterCache;
 
 public class Server {
 
-
+    private static Server instance = new Server("localhost",5555);
     private final String host;
     private final int port;
-    private CharacterCache ch;
 
-    public static void main(String[] args) throws Exception {
+    private static void main(String[] args) throws Exception {
         new Server("localhost", 5555).run();
     }
-
 
     public Server(String host, int port) {
         this.host = host;
@@ -45,6 +42,18 @@ public class Server {
             workerGroup.shutdownGracefully();
             bossGroup.shutdownGracefully();
         }
+    }
+
+    public static Server getInstance() {
+        return instance;
+    }
+
+    public String getHost() {
+        return host;
+    }
+
+    public int getPort() {
+        return port;
     }
 
 }

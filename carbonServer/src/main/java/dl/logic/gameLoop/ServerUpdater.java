@@ -7,10 +7,10 @@ import dl.logic.cache.CharacterCache;
 import entities.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 
-public class GameUpdater {
+public class ServerUpdater {
 
     @Autowired
-    ActionDispatcher actionDispatcher = new ActionDispatcher();
+    ActionDispatcher actionDispatcher;
 
     public void update(long now) {
         changeStates(now);
@@ -38,5 +38,4 @@ public class GameUpdater {
         }
 
     }
-
 }

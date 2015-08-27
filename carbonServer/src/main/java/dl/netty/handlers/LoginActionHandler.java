@@ -2,6 +2,7 @@ package dl.netty.handlers;
 
 import actions.actionImpl.LoginAction;
 import entities.Player;
+import entities.wrapers.PlayerWrapper;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import dl.logic.cache.CharacterCache;
@@ -19,10 +20,11 @@ public class LoginActionHandler extends SimpleChannelInboundHandler<LoginAction>
     protected void messageReceived(ChannelHandlerContext ctx, LoginAction la) throws Exception {
         Player p = new Player(la.getLogin());
         Integer id = CharacterCache.getInstance().addPlayer(p);
-        la.setPlayerId(id);
-        la.setPlayer(p);
+        PlayerWrapper playerWrapper = new PlayerWrapper();
+        playerWrapper.setId(id);
+        playerWrapper.setPlayer(p);
         serverInitializer.setPlayerId(id);
-        ctx.write(la);
+        ctx.write(playerWrapper);
         ctx.flush();
     }
 }

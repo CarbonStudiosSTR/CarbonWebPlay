@@ -44,11 +44,4 @@ public class CharacterCache {
         return playersById.get(i);
     }
 
-    public void listPlayers() {
-        for (Player player : playersById.values()) {
-            System.out.println(" player sign_in: " + player.getName() + " pos " + player.getPosX() + "," + player.getPosY());
-        }
-
-    }
-
 }

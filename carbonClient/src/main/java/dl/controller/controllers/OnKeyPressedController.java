@@ -10,8 +10,6 @@ import javafx.scene.input.KeyEvent;
 import util.ActionEnum;
 import util.MoveEnum;
 
-import java.util.Date;
-
 public class OnKeyPressedController implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
@@ -21,7 +19,7 @@ public class OnKeyPressedController implements EventHandler<KeyEvent> {
             ActionWrapper<MoveAction> actionWrapper = new ActionWrapper<>();
             actionWrapper.setId(Connection.CONNECTION_ID);
             actionWrapper.setActionType(ActionEnum.Move);
-            actionWrapper.setTimestamp(new Date().getTime());
+            actionWrapper.setTimestamp(System.nanoTime());
 
             if (keyEvent.getCode() == KeyCode.UP) {
                 actionWrapper.setAction(new MoveAction(MoveEnum.UP_START));

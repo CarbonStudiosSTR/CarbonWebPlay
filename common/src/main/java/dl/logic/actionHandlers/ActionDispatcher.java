@@ -9,7 +9,10 @@ import util.ActionEnum;
 public class ActionDispatcher {
 
     @Autowired
-    MoveActionExecutor moveActionExecutor;
+    MoveActionExecutor moveActionExecutor = new MoveActionExecutor();
+
+    public ActionDispatcher() {
+    }
 
     public void dispatchAction(ActionWrapper actionWrapper) {
         ActionEnum actionType = actionWrapper.getActionType();
