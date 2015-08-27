@@ -33,7 +33,7 @@ public class GameView extends Application {
       primaryStage.centerOnScreen();
       primaryStage.setFullScreenExitKeyCombination(NO_MATCH);
       primaryStage.setScene(mainScene);
-      primaryStage.setFullScreen(true);
+     // primaryStage.setFullScreen(true);
       primaryStage.show();
    }
 }

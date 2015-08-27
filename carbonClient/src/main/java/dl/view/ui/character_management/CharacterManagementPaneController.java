@@ -2,7 +2,6 @@ package dl.view.ui.character_management;
 
 import dl.view.ui.DLContext;
 import dl.view.ui.NodeController;
-import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.layout.StackPane;

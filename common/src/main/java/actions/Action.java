@@ -1,6 +1,8 @@
 package actions;
 
-public interface Action {
+import java.io.Serializable;
 
-    void executeAction();
+public abstract class Action implements Serializable {
+
+
 }

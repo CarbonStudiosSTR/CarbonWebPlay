@@ -4,7 +4,7 @@ import actions.actionImpl.LoginAction;
 import entities.Player;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import dl.logic.CharacterCache;
+import dl.logic.cache.CharacterCache;
 import dl.netty.ServerInitializer;
 
 public class LoginActionHandler extends SimpleChannelInboundHandler<LoginAction> {

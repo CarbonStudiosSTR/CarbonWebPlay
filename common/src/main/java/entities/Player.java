@@ -1,6 +1,6 @@
 package entities;
 
-public class Player {
+public class Player implements Entity{
 
     private float posX;
     private float posY;
@@ -23,6 +23,11 @@ public class Player {
         this.posY = 10;
     }
 
+    @Override
+    public void update() {
+        System.out.println("plajer zapdejtowany");
+    }
+
     public float getPosX() {
         return posX;
     }
@@ -38,4 +43,5 @@ public class Player {
     public void setPosY(float posY) {
         this.posY = posY;
     }
+
 }

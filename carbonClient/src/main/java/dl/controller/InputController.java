@@ -5,13 +5,13 @@ import dl.controller.controllers.OnKeyPressedController;
 import dl.controller.controllers.OnKeyReleasedController;
 import dl.controller.controllers.OnMousePressedController;
 import dl.controller.controllers.OnMouseReleasedController;
-import javafx.scene.image.ImageView;
+import javafx.scene.layout.Pane;
 
 public class InputController {
-    public static void initInputController(ImageView imageView) {
-        imageView.setOnKeyPressed(new OnKeyPressedController());
-        imageView.setOnKeyReleased(new OnKeyReleasedController());
-        imageView.setOnMousePressed(new OnMousePressedController());
-        imageView.setOnMouseReleased(new OnMouseReleasedController());
+    public static void initInputController(Pane pane) {
+        pane.setOnKeyPressed(new OnKeyPressedController());
+        pane.setOnKeyReleased(new OnKeyReleasedController());
+        pane.setOnMousePressed(new OnMousePressedController());
+        pane.setOnMouseReleased(new OnMouseReleasedController());
     }
 }

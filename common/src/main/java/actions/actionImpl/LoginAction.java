@@ -1,9 +1,8 @@
 package actions.actionImpl;
 
-import actions.SimpleAction;
 import entities.Player;
 
-public class LoginAction extends SimpleAction {
+public class LoginAction implements java.io.Serializable {
 
     private String login;
     private String password;
@@ -23,7 +22,6 @@ public class LoginAction extends SimpleAction {
         this.password = password;
     }
 
-    @Override
     public void executeAction() {
         System.out.println(login + ", " + password);
     }

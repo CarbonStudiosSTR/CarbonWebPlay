@@ -1,24 +1,39 @@
 package dl.controller.controllers;
 
+import actions.ActionWrapper;
 import actions.playerActionImpl.MoveAction;
+import dl.netty.Client;
+import dl.utils.Connection;
 import javafx.event.EventHandler;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import dl.netty.Client;
+import util.ActionEnum;
 import util.MoveEnum;
-import dl.utils.Connection;
+
+import java.util.Date;
 
 public class OnKeyPressedController implements EventHandler<KeyEvent> {
     @Override
     public void handle(KeyEvent keyEvent) {
-        if(keyEvent.getCode()== KeyCode.UP){
-            Client.getInstance().writeAction(new MoveAction(Connection.CONNECTION_ID, MoveEnum.UP_START));
-        }else if(keyEvent.getCode()== KeyCode.DOWN){
-            Client.getInstance().writeAction(new MoveAction(Connection.CONNECTION_ID, MoveEnum.DOWN_START));
-        }else if(keyEvent.getCode()== KeyCode.LEFT){
-            Client.getInstance().writeAction(new MoveAction(Connection.CONNECTION_ID, MoveEnum.LEFT_START));
-        }else if(keyEvent.getCode()== KeyCode.RIGHT){
-            Client.getInstance().writeAction(new MoveAction(Connection.CONNECTION_ID, MoveEnum.RIGHT_START));
+        if (keyEvent.getCode() == KeyCode.UP || keyEvent.getCode() == KeyCode.DOWN ||
+                keyEvent.getCode() == KeyCode.LEFT || keyEvent.getCode() == KeyCode.RIGHT) {
+
+            ActionWrapper<MoveAction> actionWrapper = new ActionWrapper<>();
+            actionWrapper.setId(Connection.CONNECTION_ID);
+            actionWrapper.setActionType(ActionEnum.Move);
+            actionWrapper.setTimestamp(new Date().getTime());
+
+            if (keyEvent.getCode() == KeyCode.UP) {
+                actionWrapper.setAction(new MoveAction(MoveEnum.UP_START));
+            } else if (keyEvent.getCode() == KeyCode.DOWN) {
+                actionWrapper.setAction(new MoveAction(MoveEnum.DOWN_START));
+            } else if (keyEvent.getCode() == KeyCode.LEFT) {
+                actionWrapper.setAction(new MoveAction(MoveEnum.LEFT_START));
+            } else if (keyEvent.getCode() == KeyCode.RIGHT) {
+                actionWrapper.setAction(new MoveAction(MoveEnum.RIGHT_START));
+            }
+            Client.getInstance().writeAction(actionWrapper);
+
         }
     }
 }

@@ -1,17 +1,16 @@
 package dl.netty.handlers;
 
 
-import actions.PlayerAction;
+import actions.ActionWrapper;
+import actions.playerActionImpl.MoveAction;
+import dl.logic.ActionQueue;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import dl.logic.CharacterCache;
 
-public class PlayerActionHandler extends SimpleChannelInboundHandler<PlayerAction> {
+public class PlayerActionHandler extends SimpleChannelInboundHandler<ActionWrapper<MoveAction>> {
 
     @Override
-    protected void messageReceived(ChannelHandlerContext channelHandlerContext, PlayerAction o) throws Exception {
-
-        o.executeAction();
-        CharacterCache.getInstance().listPlayers();
+    protected void messageReceived(ChannelHandlerContext channelHandlerContext, ActionWrapper<MoveAction> moveActionActionWrapper) throws Exception {
+        ActionQueue.getInstance().addAction(moveActionActionWrapper);
     }
 }

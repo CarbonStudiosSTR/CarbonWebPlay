@@ -1,38 +1,21 @@
 package actions.playerActionImpl;
 
-import actions.PlayerAction;
-import entities.Player;
-import dl.logic.CharacterCache;
+import actions.Action;
 import util.MoveEnum;
 
-public class MoveAction extends PlayerAction {
+public class MoveAction extends Action {
 
     private MoveEnum move;
 
-    public MoveAction(Integer id, MoveEnum move) {
-        this.id = id;
+    public MoveAction(MoveEnum move) {
         this.move = move;
-    }
-
-    @Override
-    public void executeAction() {
-        Player p = CharacterCache.getInstance().getPlayer(id);
-        if (move== MoveEnum.UP_START) {
-            p.setPosY(p.getPosY() + 1);
-        } else if (move== MoveEnum.DOWN_START) {
-            p.setPosY(p.getPosY() - 1);
-        } else if (move== MoveEnum.LEFT_START) {
-            p.setPosX(p.getPosX() - 1);
-        } else if (move== MoveEnum.RIGHT_START) {
-            p.setPosX(p.getPosX() + 1);
-        }
     }
 
     public MoveEnum getMove() {
         return move;
     }
-
-    public Integer getId() {
-        return id;
+    public void setMove(MoveEnum move) {
+        this.move = move;
     }
+
 }

@@ -11,8 +11,8 @@ public class ClientMain {
 
    public static void main(String[] args) {
       ExecutorService es = Executors.newFixedThreadPool(2);
-
-      es.execute(() -> new GameView().startup(args));
       es.execute(() -> Client.getInstance().connect());
+      es.execute(() -> new GameView().startup(args));
+
    }
 }

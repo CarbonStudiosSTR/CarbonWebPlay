@@ -1,15 +1,15 @@
-package dl.logic;
+package dl.logic.cache;
 
 
 import entities.Player;
 
+import java.util.Collection;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class CharacterCache {
 
     private static CharacterCache instance = new CharacterCache();
     private ConcurrentHashMap<Integer, Player> playersById;
-
 
     protected CharacterCache() {
         playersById = new ConcurrentHashMap<Integer, Player>();
@@ -28,8 +28,12 @@ public class CharacterCache {
         return i;
     }
 
-    public void addPlayer(Player player, Integer id){
-        playersById.put(id,player);
+    public Collection<Player> getPlayers() {
+        return playersById.values();
+    }
+
+    public void addPlayer(Player player, Integer id) {
+        playersById.put(id, player);
     }
 
     public void removePlayer(Integer i) {
