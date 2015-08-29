@@ -12,7 +12,7 @@ public class ServerGameLoop extends AnimationTimer {
 
     private static final float timeStep = 0.0166f;
     private float accumulatedTime = 0;
-    private float maximumStep;
+    private float maximumStep = 10;
 
     public ServerGameLoop(ServerUpdater updater) {
         this.updater = updater;

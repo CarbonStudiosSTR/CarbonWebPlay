@@ -17,11 +17,17 @@ public class ActionQueue {
         return instance;
     }
 
-    public void addAction(ActionWrapper actionWrapper){
+    public synchronized void addAction(ActionWrapper actionWrapper) {
         actions.add(actionWrapper);
     }
 
-    public Set<ActionWrapper> getActions() {
-        return actions;
+    public synchronized Set<ActionWrapper> getActionsToExecute() {
+        Set<ActionWrapper> returnSet = new HashSet<ActionWrapper>();
+        for (ActionWrapper action : actions) {
+            returnSet.add(action);
+            actions.remove(action);
+        }
+        return returnSet;
     }
+
 }

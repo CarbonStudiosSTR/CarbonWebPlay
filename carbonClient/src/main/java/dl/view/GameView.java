@@ -9,7 +9,6 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import static javafx.scene.input.KeyCombination.NO_MATCH;
-import static javafx.stage.StageStyle.UNDECORATED;
 
 public class GameView extends Application {
 
@@ -29,8 +28,8 @@ public class GameView extends Application {
       mainScene.getStylesheets().add("ui/skins/DarklandDefault.css");
 
       primaryStage.setTitle("Darkland");
-      primaryStage.initStyle(UNDECORATED);
-      primaryStage.centerOnScreen();
+     // primaryStage.initStyle(UNDECORATED);
+     // primaryStage.centerOnScreen();
       primaryStage.setFullScreenExitKeyCombination(NO_MATCH);
       primaryStage.setScene(mainScene);
      // primaryStage.setFullScreen(true);

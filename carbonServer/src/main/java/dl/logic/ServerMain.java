@@ -22,7 +22,9 @@ public class ServerMain {
             @Override
             public void run() {
                 ServerGameLoop gameLoop = new ServerGameLoop(new ServerUpdater());
-                gameLoop.start();
+                while (true) {
+                    gameLoop.handle(System.nanoTime());
+                }
             }
         });
     }

@@ -8,21 +8,29 @@ import org.springframework.stereotype.Component;
 import util.MoveEnum;
 
 @Component
-public class MoveActionExecutor extends ActionExecutor<MoveAction>{
+public class MoveActionExecutor extends ActionExecutor<MoveAction> {
 
     @Override
     public void executeAction(ActionWrapper<MoveAction> actionWrapper) {
 
         Player p = CharacterCache.getInstance().getPlayer(actionWrapper.getId());
         MoveEnum move = actionWrapper.getAction().getMove();
-        if (move== MoveEnum.UP_START) {
-            p.setPosY(p.getPosY() + 1);
-        } else if (move== MoveEnum.DOWN_START) {
-            p.setPosY(p.getPosY() - 1);
-        } else if (move== MoveEnum.LEFT_START) {
-            p.setPosX(p.getPosX() - 1);
-        } else if (move== MoveEnum.RIGHT_START) {
-            p.setPosX(p.getPosX() + 1);
+        if (move == MoveEnum.UP_START) {
+            p.setGoUp(true);
+        } else if (move == MoveEnum.DOWN_START) {
+            p.setGoDown(true);
+        } else if (move == MoveEnum.LEFT_START) {
+            p.setGoLeft(true);
+        } else if (move == MoveEnum.RIGHT_START) {
+            p.setGoRight(true);
+        } else if (move == MoveEnum.UP_STOP) {
+            p.setGoUp(false);
+        } else if (move == MoveEnum.DOWN_STOP) {
+            p.setGoDown(false);
+        } else if (move == MoveEnum.LEFT_STOP) {
+            p.setGoLeft(false);
+        } else if (move == MoveEnum.RIGHT_STOP) {
+            p.setGoRight(false);
         }
     }
 }

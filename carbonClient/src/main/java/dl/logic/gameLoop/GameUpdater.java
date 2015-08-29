@@ -5,11 +5,9 @@ import dl.logic.ActionQueue;
 import dl.logic.actionHandlers.ActionDispatcher;
 import dl.logic.cache.CharacterCache;
 import entities.Player;
-import org.springframework.beans.factory.annotation.Autowired;
 
 public class GameUpdater {
 
-    @Autowired
     ActionDispatcher actionDispatcher = new ActionDispatcher();
 
     public void update(long now) {
@@ -18,8 +16,9 @@ public class GameUpdater {
     }
 
     private void changeStates(long now) {
-        for (ActionWrapper actionWrapper : ActionQueue.getInstance().getActions()) {
+        for (ActionWrapper actionWrapper : ActionQueue.getInstance().getActionsToExecute()) {
             actionDispatcher.dispatchAction(actionWrapper);
+            updateOldAction(actionWrapper,now);
         }
     }
 
