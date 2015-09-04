@@ -9,8 +9,8 @@ public class Player implements Entity, Serializable {
     private float posX;
     private float posY;
 
-    private float maxSpeed = 5;
-    private float velocity = 2;
+    private float maxSpeed = 0.5f;
+    private float velocity = 0.05f;
 
     boolean goLeft;
     boolean goRight;

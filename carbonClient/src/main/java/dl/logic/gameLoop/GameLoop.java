@@ -2,8 +2,7 @@ package dl.logic.gameLoop;
 
 import javafx.animation.AnimationTimer;
 
-public class GameLoop extends AnimationTimer{
-
+public class GameLoop extends AnimationTimer {
     private final GameUpdater updater;
     private final Runnable renderer;
 
@@ -48,8 +47,7 @@ public class GameLoop extends AnimationTimer{
     }
 
     @Override
-    public void stop()
-    {
+    public void stop() {
         super.stop();
         previousTime = 0;
         accumulatedTime = 0;

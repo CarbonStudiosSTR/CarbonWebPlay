@@ -11,11 +11,14 @@ public class ServerMain {
 
     public static void main(String[] args) {
         ExecutorService es = Executors.newFixedThreadPool(2);
-        es.execute(() -> {
-            try {
-                Server.getInstance().run();
-            } catch (Exception e) {
-                e.printStackTrace();
+        es.execute(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Server.getInstance().run();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         });
         es.execute(new Runnable() {
