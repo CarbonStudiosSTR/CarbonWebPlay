@@ -20,7 +20,7 @@ public class OnKeyPressedController implements EventHandler<KeyEvent> {
             ActionWrapper<MoveAction> actionWrapper = new ActionWrapper<>();
             actionWrapper.setId(Connection.CONNECTION_ID);
             actionWrapper.setActionType(ActionEnum.Move);
-            actionWrapper.setTimestamp(System.nanoTime()+ 16666);
+            actionWrapper.setTimestamp(System.nanoTime());
             float posX =  CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getPosX();
             float posY =  CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getPosY();
 

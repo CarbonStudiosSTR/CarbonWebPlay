@@ -1,7 +1,6 @@
 package dl.logic;
 
 import dl.logic.gameLoop.ServerGameLoop;
-import dl.logic.gameLoop.ServerUpdater;
 import dl.netty.Server;
 
 import java.util.concurrent.ExecutorService;
@@ -24,7 +23,7 @@ public class ServerMain {
         es.execute(new Runnable() {
             @Override
             public void run() {
-                ServerGameLoop gameLoop = new ServerGameLoop(new ServerUpdater());
+                ServerGameLoop gameLoop = new ServerGameLoop();
                 while (true) {
                     gameLoop.handle(System.nanoTime());
                 }
