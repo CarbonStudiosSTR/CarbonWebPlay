@@ -2,6 +2,7 @@ package dl.controller.controllers;
 
 import actions.ActionWrapper;
 import actions.playerActionImpl.MoveAction;
+import dl.logic.cache.CharacterCache;
 import dl.netty.Client;
 import dl.utils.Connection;
 import javafx.event.EventHandler;
@@ -20,15 +21,17 @@ public class OnKeyPressedController implements EventHandler<KeyEvent> {
             actionWrapper.setId(Connection.CONNECTION_ID);
             actionWrapper.setActionType(ActionEnum.Move);
             actionWrapper.setTimestamp(System.nanoTime());
+            float posX =  CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getPosX();
+            float posY =  CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getPosY();
 
             if (keyEvent.getCode() == KeyCode.UP) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.UP_START));
+                actionWrapper.setAction(new MoveAction(MoveEnum.UP_START,posX,posY));
             } else if (keyEvent.getCode() == KeyCode.DOWN) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.DOWN_START));
+                actionWrapper.setAction(new MoveAction(MoveEnum.DOWN_START,posX,posY));
             } else if (keyEvent.getCode() == KeyCode.LEFT) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.LEFT_START));
+                actionWrapper.setAction(new MoveAction(MoveEnum.LEFT_START,posX,posY));
             } else if (keyEvent.getCode() == KeyCode.RIGHT) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.RIGHT_START));
+                actionWrapper.setAction(new MoveAction(MoveEnum.RIGHT_START,posX,posY));
             }
             Client.getInstance().writeAction(actionWrapper);
 

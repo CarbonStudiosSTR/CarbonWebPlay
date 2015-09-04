@@ -14,6 +14,8 @@ public class MoveActionExecutor extends ActionExecutor<MoveAction> {
     public void executeAction(ActionWrapper<MoveAction> actionWrapper) {
 
         Player p = CharacterCache.getInstance().getPlayer(actionWrapper.getId());
+        p.setPosX(actionWrapper.getAction().getPosX());
+        p.setPosY(actionWrapper.getAction().getPosY());
         MoveEnum move = actionWrapper.getAction().getMove();
         if (move == MoveEnum.UP_START) {
             p.setGoUp(true);

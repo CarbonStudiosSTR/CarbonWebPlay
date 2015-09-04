@@ -18,7 +18,7 @@ public class GameUpdater {
     private void changeStates(long now) {
         for (ActionWrapper actionWrapper : ActionQueue.getInstance().getActionsToExecute()) {
             actionDispatcher.dispatchAction(actionWrapper);
-            updateOldAction(actionWrapper,now);
+          //  updateOldAction(actionWrapper,now);
         }
     }
 
