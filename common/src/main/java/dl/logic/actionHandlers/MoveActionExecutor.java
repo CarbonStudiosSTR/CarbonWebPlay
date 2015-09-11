@@ -14,9 +14,15 @@ public class MoveActionExecutor extends ActionExecutor<MoveAction> {
     public void executeAction(ActionWrapper<MoveAction> actionWrapper) {
 
         Player p = CharacterCache.getInstance().getPlayer(actionWrapper.getId());
-        p.setPosX(actionWrapper.getAction().getPosX());
-        p.setPosY(actionWrapper.getAction().getPosY());
         MoveEnum move = actionWrapper.getAction().getMove();
+        if (move == MoveEnum.UP_START || move == MoveEnum.UP_STOP || move == MoveEnum.DOWN_STOP || move == MoveEnum.DOWN_START) {
+            p.setPosY(actionWrapper.getAction().getPosition());
+            p.setSpeedY(actionWrapper.getAction().getSpeed());
+        } else {
+            p.setPosX(actionWrapper.getAction().getPosition());
+            p.setSpeedX(actionWrapper.getAction().getSpeed());
+        }
+        p.setPosX(actionWrapper.getAction().getPosition());
         if (move == MoveEnum.UP_START) {
             p.setGoUp(true);
         } else if (move == MoveEnum.DOWN_START) {

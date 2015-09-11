@@ -23,15 +23,17 @@ public class OnKeyPressedController implements EventHandler<KeyEvent> {
             actionWrapper.setTimestamp(System.nanoTime());
             float posX =  CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getPosX();
             float posY =  CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getPosY();
+            float speedX = CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getSpeedX();
+            float speedY = CharacterCache.getInstance().getPlayer(Connection.CONNECTION_ID).getSpeedY();
 
             if (keyEvent.getCode() == KeyCode.UP) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.UP_START,posX,posY));
+                actionWrapper.setAction(new MoveAction(MoveEnum.UP_START,posY,speedY));
             } else if (keyEvent.getCode() == KeyCode.DOWN) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.DOWN_START,posX,posY));
+                actionWrapper.setAction(new MoveAction(MoveEnum.DOWN_START,posY,speedY));
             } else if (keyEvent.getCode() == KeyCode.LEFT) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.LEFT_START,posX,posY));
+                actionWrapper.setAction(new MoveAction(MoveEnum.LEFT_START,posX,speedX));
             } else if (keyEvent.getCode() == KeyCode.RIGHT) {
-                actionWrapper.setAction(new MoveAction(MoveEnum.RIGHT_START,posX,posY));
+                actionWrapper.setAction(new MoveAction(MoveEnum.RIGHT_START,posX,speedX));
             }
             Client.getInstance().writeAction(actionWrapper);
 

@@ -130,6 +130,22 @@ public class Player implements Entity, Serializable {
         this.posY = posY;
     }
 
+    public float getSpeedX() {
+        return speedX;
+    }
+
+    public void setSpeedX(float speedX) {
+        this.speedX = speedX;
+    }
+
+    public float getSpeedY() {
+        return speedY;
+    }
+
+    public void setSpeedY(float speedY) {
+        this.speedY = speedY;
+    }
+
     public boolean isGoLeft() {
         return goLeft;
     }

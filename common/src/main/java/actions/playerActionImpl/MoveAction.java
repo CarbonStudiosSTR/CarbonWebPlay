@@ -6,13 +6,13 @@ import util.MoveEnum;
 public class MoveAction extends Action {
 
     private MoveEnum move;
-    private float posX;
-    private float posY;
+    private float position;
+    private float speed;
 
-    public MoveAction(MoveEnum move, float posX, float posY) {
+    public MoveAction(MoveEnum move, float position, float speed) {
         this.move = move;
-        this.posX = posX;
-        this.posY = posY;
+        this.position = position;
+        this.speed = speed;
     }
 
     public MoveEnum getMove() {
@@ -23,19 +23,19 @@ public class MoveAction extends Action {
         this.move = move;
     }
 
-    public float getPosX() {
-        return posX;
+    public float getPosition() {
+        return position;
     }
 
-    public void setPosX(float posX) {
-        this.posX = posX;
+    public void setPosition(float position) {
+        this.position = position;
     }
 
-    public float getPosY() {
-        return posY;
+    public float getSpeed() {
+        return speed;
     }
 
-    public void setPosY(float posY) {
-        this.posY = posY;
+    public void setSpeed(float speed) {
+        this.speed = speed;
     }
 }
